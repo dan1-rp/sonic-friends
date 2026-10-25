@@ -1,0 +1,159 @@
+/* Uso de IA para la mejora de claridad y estilo */
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sonic & Friends | Mi colección</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <header class="encabezado">
+    <nav class="container barra" aria-label="Navegación principal">
+      <a href="#inicio" class="marca" id="irInicio">
+        <span class="anillo" aria-hidden="true"></span>
+        <span>SONIC <strong>& FRIENDS</strong></span>
+      </a>
+      <span class="marca-secundaria">MI COLECCIÓN DE PERSONAJES ★</span>
+    </nav>
+  </header>
+
+  <section class="portada" id="inicio">
+    <div class="container portada-contenido columns is-vcentered">
+      <div class="column is-7">
+        <p class="etiqueta-portada">★ WELCOME TO THE ZONE ★</p>
+        <h1 class="titulo-portada Camaron_salteado">SONIC <span>&</span><br>FRIENDS!</h1>
+        <p class="subtitulo-portada">Tus personajes favoritos, ¡todos en un mismo lugar!</p>
+        <button id="btnAgregar" type="button" class="button boton-amarillo Camaron_salteado">
+          + AGREGAR PERSONAJE
+        </button>
+      </div>
+      <div class="column is-5">
+        <div class="portada-foto">
+          <img src="imagenes/sonic.png" alt="Ilustración de Sonic saludando">
+          <span class="portada-sticker">GOTTA<br>GO FAST!</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container contenido">
+    <div id="aviso" class="notification aviso" role="status" aria-live="polite" hidden></div>
+
+    <section id="vistaColeccion">
+      <div class="encabezado-seccion">
+        <div>
+          <p class="sobrelinea">★ CHARACTER SELECT</p>
+          <h2 class="titulo-seccion">MI COLECCIÓN</h2>
+        </div>
+        <p class="descripcion-seccion">¡Conoce a todo el equipo!</p>
+      </div>
+
+      <div class="barra-busqueda columns is-vcentered">
+        <div class="column is-8">
+          <label class="label" for="buscar">Buscar personajes</label>
+          <input id="buscar" class="input Camaron_salteado" type="search"
+                 placeholder="Escribe un nombre o un rol..." autocomplete="off">
+        </div>
+        <div class="column is-4 has-text-right-tablet">
+          <p id="contador" class="contador" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <div id="gridPersonajes" class="columns is-multiline Camaron_salteado" aria-label="Personajes guardados"></div>
+
+      <div id="sinResultados" class="estado-vacio" hidden>
+        <div class="estado-icono">?</div>
+        <h3 id="tituloVacio">¡Aquí no hay nadie!</h3>
+        <p id="textoVacio">Prueba con otro nombre.</p>
+        <button id="btnEstadoVacio" class="button boton-azul" type="button">Limpiar búsqueda</button>
+      </div>
+    </section>
+
+    <section id="vistaDetalle" hidden>
+      <button id="volverDetalle" class="button boton-volver" type="button">← VOLVER A MI COLECCIÓN</button>
+      <div class="detalle-tarjeta columns is-vcentered">
+        <div class="column is-5" id="detalleImagen"></div>
+        <div class="column is-7 detalle-texto">
+          <p class="sobrelinea">★ CHARACTER PROFILE</p>
+          <h2 id="detalleNombre" class="titulo-seccion"></h2>
+          <p><strong>Rol:</strong> <span id="detalleRol"></span></p>
+          <p><strong>Origen:</strong> <span id="detalleOrigen"></span></p>
+          <p id="detalleDescripcion" class="descripcion-personaje"></p>
+          <p class="fecha-detalle">Agregado: <span id="detalleFecha"></span></p>
+          <div class="buttons">
+            <button id="btnEditar" class="button boton-azul" type="button">EDITAR</button>
+            <button id="btnEliminar" class="button is-danger is-light" type="button">ELIMINAR</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="vistaFormulario" hidden>
+      <button id="volverFormulario" class="button boton-volver" type="button">← CANCELAR Y VOLVER</button>
+      <div class="formulario-tarjeta">
+        <p class="sobrelinea">★ BUILD YOUR TEAM</p>
+        <h2 id="tituloFormulario" class="titulo-seccion">NUEVO PERSONAJE</h2>
+        <p class="ayuda-formulario">Los campos con * son obligatorios.</p>
+        <form id="formPersonaje" novalidate>
+          <div class="columns">
+            <div class="column">
+              <div class="field">
+                <label class="label" for="nombre">Nombre *</label>
+                <div class="control"><input id="nombre" class="input" type="text" maxlength="45" placeholder="Ej. Sonic" required></div>
+                <p id="errorNombre" class="help is-danger" aria-live="polite"></p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="field">
+                <label class="label" for="rol">Rol *</label>
+                <div class="control select is-fullwidth">
+                  <select id="rol" required>
+                    <option value="">Selecciona un rol</option>
+                    <option>Velocidad</option>
+                    <option>Vuelo</option>
+                    <option>Fuerza</option>
+                    <option>Apoyo</option>
+                    <option>Rival</option>
+                    <option>Poder</option>
+                    <option>Otro</option>
+                  </select>
+                </div>
+                <p id="errorRol" class="help is-danger" aria-live="polite"></p>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label" for="origen">Origen</label>
+            <div class="control"><input id="origen" class="input" type="text" maxlength="65" placeholder="Ej. Green Hill Zone"></div>
+          </div>
+          <div class="field">
+            <label class="label" for="imagen">Imagen PNG o JPG (opcional)</label>
+            <div class="control"><input id="imagen" class="input" type="text" placeholder="imagenes/sonic.png"></div>
+            <p class="help">Escribe la ruta de una imagen guardada en la carpeta imagenes. Si no agregas una, se verán las iniciales.</p>
+            <p id="errorImagen" class="help is-danger" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label class="label" for="descripcion">Descripción</label>
+            <div class="control"><textarea id="descripcion" class="textarea" rows="3" maxlength="300" placeholder="Cuéntanos un poco de este personaje..."></textarea></div>
+          </div>
+          <div class="buttons acciones-formulario">
+            <button class="button boton-amarillo" type="submit">GUARDAR PERSONAJE</button>
+            <button id="btnCancelar" class="button is-light" type="button">CANCELAR</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie-pagina Camaron_salteado">
+    <div class="container">SONIC & FRIENDS <span>★</span> MI COLECCIÓN DE PERSONAJES</div>
+  </footer>
+</body>
+</html>

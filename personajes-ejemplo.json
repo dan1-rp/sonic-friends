@@ -1,0 +1,56 @@
+[
+  {
+    "id": "1",
+    "nombre": "Sonic",
+    "rol": "Velocidad",
+    "origen": "Green Hill Zone",
+    "imagen": "imagenes/sonic.png",
+    "descripcion": "Un erizo azul aventurero que corre a una velocidad increíble y siempre ayuda a sus amigos.",
+    "fechaCreacion": "2026-10-14T12:00:00Z"
+  },
+  {
+    "id": "2",
+    "nombre": "Tails",
+    "rol": "Vuelo",
+    "origen": "West Side Island",
+    "imagen": "imagenes/tails.png",
+    "descripcion": "Un pequeño zorro de dos colas, muy inteligente y experto en construir máquinas.",
+    "fechaCreacion": "2026-10-14T12:00:00Z"
+  },
+  {
+    "id": "3",
+    "nombre": "Knuckles",
+    "rol": "Fuerza",
+    "origen": "Angel Island",
+    "imagen": "imagenes/knuckles.png",
+    "descripcion": "El guardián de la Master Emerald. Es fuerte, valiente y puede planear por el aire.",
+    "fechaCreacion": "2026-10-14T12:00:00Z"
+  },
+  {
+    "id": "4",
+    "nombre": "Amy Rose",
+    "rol": "Apoyo",
+    "origen": "Little Planet",
+    "imagen": "imagenes/amy.png",
+    "descripcion": "Una eriza optimista y decidida que siempre está lista para defender a sus amigos con su martillo.",
+    "fechaCreacion": "2026-10-14T12:00:00Z"
+  },
+  {
+    "id": "5",
+    "nombre": "Shadow",
+    "rol": "Rival",
+    "origen": "Space Colony ARK",
+    "imagen": "imagenes/shadow.png",
+    "descripcion": "Un erizo misterioso y poderoso que utiliza el poder del Chaos Control.",
+    "fechaCreacion": "2026-10-14T12:00:00Z"
+  },
+  {
+    "id": "6",
+    "nombre": "Silver",
+    "rol": "Poder",
+    "origen": "Futuro",
+    "imagen": "imagenes/silver.png",
+    "descripcion": "Un erizo del futuro que mueve objetos con sus poderes de telequinesis.",
+    "fechaCreacion": "2026-10-14T12:00:00Z"
+  }
+]
